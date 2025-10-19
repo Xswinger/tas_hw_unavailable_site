@@ -1,0 +1,8 @@
+.books_catalog {
+    display: flex;
+    flex-direction: column;
+}
+
+.book_card {
+    display: flex;
+}

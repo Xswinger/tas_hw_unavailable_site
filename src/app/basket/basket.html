@@ -1,1 +1,33 @@
-<p>basket works!</p>
+<div>
+    @for (item of order; track item.name) {
+        <ng-container *ngTemplateOutlet="bookCardTemplate; context: { $implicit: item }"></ng-container>
+    } @empty {
+        <div>
+            Корзина пуста
+        </div>
+    }
+</div>
+<div>
+    Итого: {{getResultPrice()}}
+</div>
+<div>
+    <button>Оформить</button>
+</div>
+
+<ng-template #bookCardTemplate let-book>
+    <div>
+        <div>
+            {{ book.name }}
+        </div>
+        <div>
+            Жанр - {{book.genre}}
+        </div>
+        <div>
+            {{book.price}}
+        </div>
+        <div>
+            <button (click)="onDeleteBookFromOrder(book)">Удалить</button>
+        </div>
+    </div>
+</ng-template>
+
