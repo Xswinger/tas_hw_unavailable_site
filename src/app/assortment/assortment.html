@@ -12,18 +12,27 @@
 </div>
 
 <ng-template #bookCardTemplate let-book>
-    <div>
+    <div class="book-card">
         <div>
-            {{ book.name }}
+            <img
+                class="book-cover"
+                src=""
+                alt="Война и мир"
+            />
+        </div>
+        <div class="book-info">
+            <div class="book-title">
+                {{ book.name }}
+            </div>
+            <div>
+                Жанр - {{book.genre}}
+            </div>
+            <div>
+                {{book.price}}
+            </div>
         </div>
         <div>
-            Жанр - {{book.genre}}
-        </div>
-        <div>
-            {{book.price}}
-        </div>
-        <div>
-            <button (click)="onAddBookToOrder(book)">В корзину</button>
+            <button class="book-button" (click)="onAddBookToOrder(book)">В корзину</button>
         </div>
     </div>
 </ng-template>
