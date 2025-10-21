@@ -1,8 +1,9 @@
-<div>
+<div class="book-list" aria-hidden="true">
+  <div class="search-bar">
     <input type="search" placeholder="Введите название" [(ngModel)]="search"/>
-</div>
-<div>
-    @for (item of getBooks(); track item.name) {
+  </div>
+
+  @for (item of getBooks(); track item.name) {
         <ng-container *ngTemplateOutlet="bookCardTemplate; context: { $implicit: item }"></ng-container>
     } @empty {
         <div>
@@ -13,26 +14,14 @@
 
 <ng-template #bookCardTemplate let-book>
     <div class="book-card">
-        <div>
-            <img
-                class="book-cover"
-                src=""
-                alt="Война и мир"
-            />
-        </div>
+        <img src="" alt="Война и мир. Л. Н. Толстой" />
         <div class="book-info">
-            <div class="book-title">
-                {{ book.name }}
+            <h3>{{ book.name }}</h3>
+            <p>Жанр – {{book.genre}}</p>
+            <div class="book-bottom">
+                <div class="book-price">{{book.price}} ₽</div>
+                <button class="add-btn" tabindex="-1" aria-hidden="true" (click)="onAddBookToOrder(book)">В корзину</button>
             </div>
-            <div>
-                Жанр - {{book.genre}}
-            </div>
-            <div>
-                {{book.price}}
-            </div>
-        </div>
-        <div>
-            <button class="book-button" (click)="onAddBookToOrder(book)">В корзину</button>
         </div>
     </div>
 </ng-template>

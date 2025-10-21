@@ -1,4 +1,4 @@
-<div>
+<div class="cart" aria-hidden="true">
     @for (item of order; track item.name) {
         <ng-container *ngTemplateOutlet="bookCardTemplate; context: { $implicit: item }"></ng-container>
     } @empty {
@@ -6,28 +6,26 @@
             Корзина пуста
         </div>
     }
-</div>
-<div>
-    Итого: {{getResultPrice()}}
-</div>
-<div>
-    <button>Оформить</button>
+  <div class="cart-total">
+    <p>Итого: {{getResultPrice()}} ₽</p>
+    <button class="checkout-btn" tabindex="-1" aria-hidden="true" (click)="goToOrder()">Оформить</button>
+  </div>
 </div>
 
 <ng-template #bookCardTemplate let-book>
-    <div>
-        <div>
-            {{ book.name }}
-        </div>
-        <div>
-            Жанр - {{book.genre}}
-        </div>
-        <div>
-            {{book.price}}
-        </div>
-        <div>
-            <button (click)="onDeleteBookFromOrder(book)">Удалить</button>
-        </div>
+    <div class="cart-item">
+    <img src="" alt="Война и мир. Л. Н. Толстой" />
+    <div class="cart-item__info">
+      <h3>{{book.name}}</h3>
+      <p>Жанр – {{book.genre}}</p>
+      <div class="cart-item__controls">
+        <button tabindex="-1" aria-hidden="true" (click)="decreaseCount(book.name)">−</button>
+        <span>{{book.count}}</span>
+        <button tabindex="-1" aria-hidden="true" (click)="increaseCount(book.name)">+</button>
+      </div>
+      <div class="cart-item__price">{{book.price}} ₽</div>
+      <button class="remove-btn" tabindex="-1" aria-hidden="true" (click)="removeFromBasket(book.name)">🗑️</button>
     </div>
+  </div>
 </ng-template>
 

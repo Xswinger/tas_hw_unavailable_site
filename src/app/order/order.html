@@ -1,1 +1,55 @@
-<p>order works!</p>
+<div class="order-page" aria-hidden="true">
+  <table class="order-table">
+    @for (item of order; track item) {
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.count}}</td>
+          <td>{{item.price}} ₽</td>
+        </tr>
+    }
+    <tr class="order-total">
+      <td colspan="3">Итого: {{getResultPrice()}} ₽</td>
+    </tr>
+  </table>
+
+  <form class="order-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>ФИО:</label>
+        <input type="text" placeholder="Ввод текста" />
+      </div>
+
+      <div class="form-group">
+        <label>Дата рождения:</label>
+        <input type="text" placeholder="00.00.0000 (маска)" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Мобильный телефон:</label>
+        <input type="text" placeholder="+7(000)000-00-00 (маска)" />
+      </div>
+
+      <div class="form-group">
+        <label>Способ получения:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="delivery" /> Курьером</label>
+          <label><input type="radio" name="delivery" /> Самовывоз</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Оплата:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="payment" /> При получении</label>
+          <label><input type="radio" name="payment" /> Сразу</label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" tabindex="-1">Заказать</button>
+  </form>
+</div>

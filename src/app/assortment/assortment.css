@@ -1,41 +1,93 @@
-.books_catalog {
-    display: flex;
-    flex-direction: column;
+.book-list {
+  padding: 16px;
+  border-radius: 6px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Поисковая строка */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.search-bar button {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Карточки книг */
+.book-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-right: 2px solid #aaa;
+  margin-right: 12px;
 }
 
 .book-info {
   flex: 1;
 }
 
-.book-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 16px;
-  width: 500px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-.book-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
+.book-info h3 {
+  color: #2a2adf;
+  font-size: 16px;
   margin: 0;
 }
 
-.book-button {
-  background: #9aeaff;
-  border: none;
-  border-radius: 2px;
-  padding: 8px 16px;
-  font-size: 0.95rem;
+.book-info p {
+  color: #777;
+  font-size: 14px;
+  margin: 4px 0 10px;
+}
+
+.book-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-price {
+  font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
-  color: #000;
-  transition: background 0.2s ease;
+}
+
+.add-btn {
+  background-color: #a9ecff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 18px;
+  font-size: 16px;
+  cursor: default;
+}
+
+/* Отключаем доступность */
+[aria-hidden="true"] * {
+  user-select: none;
 }

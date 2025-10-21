@@ -3,4 +3,5 @@ export type BookCard = {
   genre: string;
   price: number;
   image: string;
+  count: number;
 }
