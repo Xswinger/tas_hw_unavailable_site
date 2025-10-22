@@ -14,7 +14,7 @@
 
 <ng-template #bookCardTemplate let-book>
     <div class="book-card">
-        <img src="" alt="Война и мир. Л. Н. Толстой" />
+        <img src="{{book.image}}" alt="{{book.name}}" />
         <div class="book-info">
             <h3>{{ book.name }}</h3>
             <p>Жанр – {{book.genre}}</p>

@@ -10,19 +10,19 @@ export class OrderManager {
       name: "Война и мир. Л. Н. Толстой",
       genre: "роман-эпопей",
       price: 500,
-      image: "",
+      image: "war_and_peace_logo.png",
       count: 1,
     }, {
       name: "Двенадцать стульев. И. Ильиф, Е. Петров",
       genre: "остросатиритический роман-фельетон",
       price: 300,
-      image: "",
+      image: "twelve_chairs_logo.png",
       count: 1,
     }, {
       name: "Generation. П. В. Пелевин",
       genre: "постмодернисткий роман",
       price: 600,
-      image: "",
+      image: "generation_p_logo.png",
       count: 1,
     }
   ];
