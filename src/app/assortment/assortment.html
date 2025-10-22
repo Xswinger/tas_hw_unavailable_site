@@ -1,6 +1,6 @@
 <div class="book-list" aria-hidden="true">
   <div class="search-bar">
-    <input type="search" placeholder="Введите название" [(ngModel)]="search"/>
+    <input type="search" placeholder="Введите название" [(ngModel)]="search" tabindex="-1"/>
   </div>
 
   @for (item of getBooks(); track item.name) {
@@ -14,13 +14,17 @@
 
 <ng-template #bookCardTemplate let-book>
     <div class="book-card">
-        <img src="{{book.image}}" alt="{{book.name}}" />
+        <img src="{{book.image}}" />
         <div class="book-info">
-            <h3>{{ book.name }}</h3>
-            <p>Жанр – {{book.genre}}</p>
+            <!-- <h3>{{ book.name }}</h3> -->
+            <app-canvas-text text="{{book.name}}" [fontSize]="16" textColor="#2a2adf" fontStyle="Bold"></app-canvas-text>
+            <br>
+            <!-- <p>Жанр – {{book.genre}}</p> -->
+            <app-canvas-text text="Жанр – {{book.genre}}" [fontSize]="14"></app-canvas-text>
             <div class="book-bottom">
-                <div class="book-price">{{book.price}} ₽</div>
-                <button class="add-btn" tabindex="-1" aria-hidden="true" (click)="onAddBookToOrder(book)">В корзину</button>
+                <!--<div class="book-price">{{book.price}} ₽</div> -->
+                <app-canvas-text text="{{book.price}} ₽"></app-canvas-text>
+                <app-mouse-button label="В корзину" (mouseClick)="onAddBookToOrder(book)" class="add-btn"></app-mouse-button>
             </div>
         </div>
     </div>
