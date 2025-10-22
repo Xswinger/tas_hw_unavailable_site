@@ -7,23 +7,29 @@
         </div>
     }
   <div class="cart-total">
-    <p>Итого: {{getResultPrice()}} ₽</p>
-    <button class="checkout-btn" tabindex="-1" aria-hidden="true" (click)="goToOrder()">Оформить</button>
+    <!--<p>Итого: {{getResultPrice()}} ₽</p>-->
+    <app-canvas-text text="Итого: {{getResultPrice()}} ₽" class="cart-item__price"></app-canvas-text>
+    <!--<button class="checkout-btn" tabindex="-1" aria-hidden="true" (click)="goToOrder()">Оформить</button>-->
+    <app-mouse-button label="Оформить" (mouseClick)="goToOrder()" class="canvas-btn"></app-mouse-button>
   </div>
 </div>
 
 <ng-template #bookCardTemplate let-book>
     <div class="cart-item">
-    <img src="{{book.image}}" alt="{{book.name}}" />
+    <img src="{{book.image}}"/>
     <div class="cart-item__info">
-      <h3>{{book.name}}</h3>
-      <p>Жанр – {{book.genre}}</p>
+      <!--<h3>{{book.name}}</h3>
+      <p>Жанр – {{book.genre}}</p>-->
+      <app-canvas-text text="{{book.name}}" [fontSize]="16" textColor="#2a2adf" fontStyle="Bold"></app-canvas-text>
+      <br>
+      <app-canvas-text text="Жанр – {{book.genre}}" [fontSize]="14"></app-canvas-text>
       <div class="cart-item__controls">
         <button tabindex="-1" aria-hidden="true" (click)="decreaseCount(book.name)">−</button>
         <span>{{book.count}}</span>
         <button tabindex="-1" aria-hidden="true" (click)="increaseCount(book.name)">+</button>
       </div>
-      <div class="cart-item__price">{{book.price}} ₽</div>
+      <!--<div class="cart-item__price">{{book.price}} ₽</div>-->
+      <app-canvas-text text="{{book.price}} ₽" class="cart-item__price"></app-canvas-text>
       <button class="remove-btn" tabindex="-1" aria-hidden="true" (click)="removeFromBasket(book.name)">🗑️</button>
     </div>
   </div>

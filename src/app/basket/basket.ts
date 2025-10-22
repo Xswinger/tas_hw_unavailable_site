@@ -3,10 +3,12 @@ import { OrderManager } from '../order-manager-service/order-manager';
 import { BookCard } from '../models/models';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MouseButton } from '../components/mouse-button/mouse-button';
+import { CanvasText } from '../components/canvas-text/canvas-text';
 
 @Component({
   selector: 'app-basket',
-  imports: [CommonModule],
+  imports: [CommonModule, MouseButton, CanvasText],
   templateUrl: './basket.html',
   styleUrl: './basket.css'
 })
